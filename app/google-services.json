@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "565566031437",
+    "firebase_url": "https://kwicmusic-1599267725221.firebaseio.com",
+    "project_id": "kwicmusic-1599267725221",
+    "storage_bucket": "kwicmusic-1599267725221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565566031437:android:1780c612117060c4747e04",
+        "android_client_info": {
+          "package_name": "com.numerad.kwicmusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565566031437-qj9bt8mf12k1ius56ui6uup1ud65959m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.numerad.kwicmusic",
+            "certificate_hash": "e30add712259eb4117f676aeb011013e855f7309"
+          }
+        },
+        {
+          "client_id": "565566031437-34872i7vt2to1bjckqbn2846b00g0nf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.numerad.kwicmusic",
+            "certificate_hash": "eec41065cebb3109615e79b4a0fa3d8dcdb08199"
+          }
+        },
+        {
+          "client_id": "565566031437-krdtru39t4sr8c2u363hkitvfr08ks0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH26pNtdH0TohzkX2QA-aYuZxXb97ajrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565566031437-krdtru39t4sr8c2u363hkitvfr08ks0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

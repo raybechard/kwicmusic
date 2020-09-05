@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -30,10 +34,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -45,4 +51,40 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    implementation "androidx.core:core-ktx:1.3.1"
+
+    // firebase
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
+    implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+
+    // square
+    implementation deps.square.retrofit2
+    implementation deps.square.gsonConverter
+    implementation deps.square.okHttp
+    implementation deps.square.okHttpLogging
+    implementation deps.square.rxConverter
+    implementation deps.square.picasso
+    implementation "androidx.core:core-ktx:1.3.1"
+
+    // DI
+    implementation deps.koin.android
+    implementation deps.koin.core
+    testImplementation deps.koin.test
+
+    // rx
+    implementation deps.rx.rxjava2
+    implementation deps.rx.rxkotlin2
+    implementation deps.rx.rxandroid
+
+    // test
+    implementation "com.squareup.okhttp3:mockwebserver:$versions.square.okHttp3"
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
+
+
 }

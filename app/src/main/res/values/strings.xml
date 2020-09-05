@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">KwicMusic</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -9,4 +9,13 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <string name="video_image">Video image</string>
+    <string name="title">Playlist items</string>
+
+<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-qj9bt8mf12k1ius56ui6uup1ud65959m.apps.googleusercontent.com</string> // android client-->
+<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-krdtru39t4sr8c2u363hkitvfr08ks0v.apps.googleusercontent.com</string> // web client - google service-->
+<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-34872i7vt2to1bjckqbn2846b00g0nf0.apps.googleusercontent.com</string> // oauth client-->
+    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-2i6i0fkq61bp9eg2fl6j2dakks742ci6.apps.googleusercontent.com</string> // web client - google signin
+
 </resources>
