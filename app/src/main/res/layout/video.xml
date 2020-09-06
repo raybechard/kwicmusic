@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/source"
-        style="@style/Kwikmusic.source"
+        style="@style/Kwicmusic.source"
         android:shadowColor="@android:color/black"
         app:layout_constraintStart_toStartOf="@+id/image"
         app:layout_constraintTop_toTopOf="@+id/image"
@@ -34,14 +34,14 @@
 
     <TextView
         android:id="@+id/title"
-        style="@style/Kwikmusic.title"
+        style="@style/Kwicmusic.title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image"
         tools:text="Title" />
 
     <TextView
         android:id="@+id/description"
-        style="@style/Kwikmusic.description"
+        style="@style/Kwicmusic.description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="Description" />

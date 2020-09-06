@@ -13,9 +13,27 @@
     <string name="video_image">Video image</string>
     <string name="title">Playlist items</string>
 
-<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-qj9bt8mf12k1ius56ui6uup1ud65959m.apps.googleusercontent.com</string> // android client-->
-<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-krdtru39t4sr8c2u363hkitvfr08ks0v.apps.googleusercontent.com</string> // web client - google service-->
-<!--    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-34872i7vt2to1bjckqbn2846b00g0nf0.apps.googleusercontent.com</string> // oauth client-->
-    <string name="server_client_id" tools:ignore="TypographyDashes">565566031437-2i6i0fkq61bp9eg2fl6j2dakks742ci6.apps.googleusercontent.com</string> // web client - google signin
+    <string name="channel_id">UChapgGkGWv5Ikx0NKm9Y9CQ</string>
+    <string name="user_id">hapgGkGWv5Ikx0NKm9Y9CQ</string>
 
+    // copied from AppAuth demo
+    <string name="app_name_short">AppAuth</string>
+    <string name="auth_granted">Authorization granted</string>
+    <string name="exchange_complete">Exchange completed successfully</string>
+    <string name="refresh_failed">Token refresh failed</string>
+    <string name="exchange_notification">Exchanging code for token</string>
+    <string name="intro_header">OpenID AppAuth Demo</string>
+    <string name="openid_logo_content_description">OpenID Foundation Logo</string>
+    <string name="refresh_token">Refresh token</string>
+    <string name="access_token_expires_at">Access token expires at: %s</string>
+    <string name="no_access_token_returned">No access token returned</string>
+    <string name="no_refresh_token_returned">No refresh token returned</string>
+    <string name="refresh_token_returned">Refresh token returned</string>
+    <string name="no_id_token_returned">No ID token returned</string>
+    <string name="id_token_returned">ID token returned</string>
+    <string name="view_profile">View user info</string>
+    <string name="unknown_expiry">unknown</string>
+    <string name="auth_header">Sign in with:</string>
+    <string name="no_idps_configured">No IDPs are configured. Please edit idp_configs.xml</string>
+    <string name="authorization_failed">Authorization Failed</string>
 </resources>

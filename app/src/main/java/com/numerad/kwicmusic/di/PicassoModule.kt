@@ -5,9 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val picassoModule = module {
-    single {
-        Picasso.with(androidContext())
-    }
+    single { Picasso.with(androidContext()) }
 }
 
 //private fun okHttp3Downloader(client: OkHttpClient) = OkHttp3Downloader(client)

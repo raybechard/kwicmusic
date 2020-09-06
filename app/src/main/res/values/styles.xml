@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Kwikmusic" parent="TextAppearance.MaterialComponents.Headline1">
+    <style name="Kwicmusic" parent="TextAppearance.MaterialComponents.Headline1">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">8dp</item>
@@ -20,12 +20,12 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Kwikmusic.header" parent="Kwikmusic">
+    <style name="Kwicmusic.header" parent="Kwicmusic">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Kwikmusic.source" parent="Kwikmusic">
+    <style name="Kwicmusic.source" parent="Kwicmusic">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>
         <item name="android:shadowDx">0</item>
@@ -35,13 +35,13 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
-    <style name="Kwikmusic.title" parent="Kwikmusic">
+    <style name="Kwicmusic.title" parent="Kwicmusic">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>
         <item name="android:maxLines">1</item>
     </style>
 
-    <style name="Kwikmusic.description" parent="Kwikmusic">
+    <style name="Kwicmusic.description" parent="Kwicmusic">
         <item name="android:textSize">12sp</item>
         <item name="android:maxLines">2</item>
     </style>

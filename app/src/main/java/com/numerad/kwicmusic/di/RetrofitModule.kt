@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.numerad.kwicmusic.BuildConfig
 import com.numerad.kwicmusic.Constants.Companion.BASE_URL
 import com.numerad.kwicmusic.Constants.Companion.HTTP_TIME_OUT
+import com.numerad.numeriq.domain.AuthenticationService
 import com.numerad.numeriq.domain.VideoService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -21,6 +22,7 @@ val retrofitModule = module {
     single { okHttp() }
     single { retrofit(BASE_URL) }
     single { get<Retrofit>().create(VideoService::class.java) }
+    single { get<Retrofit>().create(AuthenticationService::class.java) }
 }
 
 val retrofitTestModule = module {
