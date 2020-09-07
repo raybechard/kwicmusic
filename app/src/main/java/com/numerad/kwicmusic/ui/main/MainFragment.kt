@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.numerad.kwicmusic.R
 import com.numerad.kwicmusic.data.model.PlaylistUiModel
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
     }
 
     interface OnListInteractionListener {
-        fun onListInteraction(playlist: PlaylistUiModel?)
+        fun onListInteraction(playlist: PlaylistUiModel)
     }
 
     override fun onCreateView(
@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        item_list.layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
+        item_list.layoutManager = LinearLayoutManager(context, VERTICAL, false)
         adapter = PlaylistAdapter(listOf(), listener)
         item_list.adapter = adapter
         detail_title.text = "Ray's YouTube Playlists" // todo fetch name, combine with resource

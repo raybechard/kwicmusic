@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.numerad.kwicmusic.R
 import com.numerad.kwicmusic.data.model.ItemUiModel
+import com.numerad.kwicmusic.ui.main.MainActivity
 import timber.log.Timber
 
 class DetailActivity : AppCompatActivity(), DetailFragment.OnItemInteractionListener {
@@ -12,7 +13,10 @@ class DetailActivity : AppCompatActivity(), DetailFragment.OnItemInteractionList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_detail)
+
+        // todo send to viewmodel
+        val playlistId = intent.getStringExtra(MainActivity.ARG_PLAYLIST_ID)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

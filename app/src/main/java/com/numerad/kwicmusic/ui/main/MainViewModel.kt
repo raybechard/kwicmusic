@@ -62,16 +62,24 @@ class MainViewModel : ViewModel(), KoinComponent {
                 .subscribe(
                     { result ->
                         playlistsLiveData.value =
-                            result.items.mapNotNull { it.snippet?.toPlaylistUiModel("medium", it.contentDetails?.itemCount ?: 0) }
+                            result.items.map {
+                                it.snippet.toPlaylistUiModel(
+                                    it.id,
+                                    "medium",
+                                    it.contentDetails.itemCount
+                                )
+                            }
                     },
                     Timber::e
                 )
         )
     }
 
-    private fun Snippet.toPlaylistUiModel(thumbnailSize: String, itemCount: Int) =
+    private fun Snippet.toPlaylistUiModel(playlistId: String, thumbnailSize: String, itemCount: Int) =
         PlaylistUiModel(
-            title ?: "unknown",
+            playlistId,
+            title,
             thumbnails[thumbnailSize]?.url ?: "unknown",
-            itemCount)
+            itemCount
+        )
 }

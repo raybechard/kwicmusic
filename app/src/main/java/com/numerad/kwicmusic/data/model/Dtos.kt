@@ -1,85 +1,83 @@
 package com.numerad.kwicmusic.data.model
 
-import com.google.api.client.util.DateTime
-
-class Playlist {
-    var kind: String? = null
-    var etag: String? = null
-    var id: String? = null
-    var snippet: Snippet? = null
-    var status: Status? = null
-    var contentDetails: ContentDetails? = null
-    var player: Player? = null
+data class Playlist(
+    var kind: String,
+    var etag: String,
+    var id: String,
+    var snippet: Snippet,
+    var status: Status,
+    var contentDetails: ContentDetails,
+    var player: Player,
     var localizations: Map<String, Local> = mapOf()
-}
+)
 
-class Snippet {
-    var publishedAt: String? = null
-    var channelId: String? = null
-    var title: String? = null
-    var description: String? = null
-    var thumbnails: Map<String, Thumbnail> = mapOf()
-    var channelTitle: String? = null
-    var tags: List<String> = listOf()
-    var defaultLanguage: String? = null
-    var localized: Local? = null
-}
+data class Snippet(
+    var publishedAt: String,
+    var channelId: String,
+    var title: String,
+    var description: String,
+    var thumbnails: Map<String, Thumbnail> = mapOf(),
+    var channelTitle: String,
+    var tags: List<String> = listOf(),
+    var defaultLanguage: String,
+    var localized: Local
+)
 
-class Status {
-    var privacyStatus: String? = null
-}
+data class Status(
+    var privacyStatus: String
+)
 
-class ContentDetails {
-    var itemCount: Int? = null
-}
+data class ContentDetails(
+    var itemCount: Int
+)
 
-class Player {
-    var embedHtml: String? = null
-}
+data class Player(
+    var embedHtml: String
+)
 
-class Local {
-    var title: String? = null
-    var description: String? = null
-}
+data class Local(
+    var title: String,
+    var description: String
+)
 
-class Thumbnail {
-    var url: String? = null
-    var widtdh: Int? = null
-    var height: Int? = null
-}
+data class Thumbnail(
+    var url: String,
+    var widtdh: Int,
+    var height: Int
+)
 
 // ************************** PlaylistItem **************************
 
-class PlaylistItem {
-    var kind: String? = null
-    var etag: String? = null
-    var id: String? = null
-    var snippet: SnippetItem? = null
-    var contentDetails: ContentDetailsItem? = null
-    var status: Status? = null
-}
+data class PlaylistItem(
+    var kind: String,
+    var etag: String,
+    var id: String,
+    var snippet: SnippetItem,
+    var contentDetails: ContentDetailsItem,
+    var status: Status
+)
 
-class SnippetItem {
-    var publishedAt: String? = null
-    var channelId: String? = null
-    var title: String? = null
-    var description: String? = null
-    var thumbnails: Map<String, Thumbnail> = mapOf()
-    var channelTitle: String? = null
-    var playlistId: String? = null
-    var position: String? = null
-    var resourceId: ResourceId? = null
-}
+data class SnippetItem(
+    var publishedAt: String,
+    var channelId: String,
+    var title: String,
+    var description: String,
+    var thumbnails: Map<String, Thumbnail> = mapOf(),
+    var channelTitle: String,
+    var playlistId: String,
+    var position: String,
+    var resourceId: ResourceId
+)
 
-class ContentDetailsItem {
-    var videoId: String? = null
-    var startAt: String? = null
-    var endAt: String? = null
-    var note: String? = null
-    var videoPublishedAt: DateTime? = null
-}
+data class ContentDetailsItem(
+    var videoId: String,
+    var startAt: String,
+    var endAt: String,
+    var note: String,
+    var videoPublishedAt: String
+)
 
-class ResourceId {
-    var kind: String? = null
-    var videoId: String? = null
-}
+data class ResourceId(
+    var kind: String,
+    var videoId: String
+)
