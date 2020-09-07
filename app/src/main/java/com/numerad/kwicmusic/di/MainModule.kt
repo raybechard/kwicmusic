@@ -1,4 +1,4 @@
-package com.numerad.numeriq.di
+package com.numerad.kwicmusic.di
 
 import com.google.gson.GsonBuilder
 import com.numerad.kwicmusic.SessionManager

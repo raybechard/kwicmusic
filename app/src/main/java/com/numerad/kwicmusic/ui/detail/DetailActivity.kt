@@ -1,14 +1,14 @@
-package com.numerad.kwicmusic.ui.main
+package com.numerad.kwicmusic.ui.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.numerad.kwicmusic.R
-import com.numerad.kwicmusic.data.model.PlaylistUiModel
+import com.numerad.kwicmusic.data.model.ItemUiModel
 import timber.log.Timber
 
-class MainActivity : AppCompatActivity(), MainFragment.OnListInteractionListener {
+class DetailActivity : AppCompatActivity(), DetailFragment.OnItemInteractionListener {
 
-    private val TAG = "MainViewModel"
+    private val TAG = "DetailViewModel"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,12 +16,12 @@ class MainActivity : AppCompatActivity(), MainFragment.OnListInteractionListener
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, DetailFragment.newInstance())
                 .commitNow()
         }
     }
 
-    override fun onListInteraction(playlist: PlaylistUiModel?) {
-        Timber.tag(TAG).e("playlist thumbnail clicked")
+    override fun onItemInteraction(item: ItemUiModel?) {
+        Timber.tag(TAG).e("item thumbnail clicked")
     }
 }

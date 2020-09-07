@@ -1,4 +1,4 @@
-package com.numerad.numeriq.di
+package com.numerad.kwicmusic.di
 
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.koin.androidContext

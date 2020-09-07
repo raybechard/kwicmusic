@@ -1,126 +1,85 @@
 package com.numerad.kwicmusic.data.model
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+import com.google.api.client.util.DateTime
 
-class PlaylistItem {
-    @SerializedName("kind")
-    @Expose
+class Playlist {
     var kind: String? = null
-
-    @SerializedName("etag")
-    @Expose
     var etag: String? = null
-
-    @SerializedName("id")
-    @Expose
     var id: String? = null
-
-    @SerializedName("snippet")
-    @Expose
     var snippet: Snippet? = null
-
-    @SerializedName("contentDetails")
-    @Expose
-    var contentDetails: ContentDetails? = null
-
-    @SerializedName("status")
-    @Expose
     var status: Status? = null
-}
-
-class ContentDetails {
-    @SerializedName("videoId")
-    @Expose
-    var videoId: String? = null
-
-    @SerializedName("startAt")
-    @Expose
-    var startAt: String? = null
-
-    @SerializedName("endAt")
-    @Expose
-    var endAt: String? = null
-
-    @SerializedName("note")
-    @Expose
-    var note: String? = null
-
-    @SerializedName("videoPublishedAt")
-    @Expose
-    var videoPublishedAt: String? = null
+    var contentDetails: ContentDetails? = null
+    var player: Player? = null
+    var localizations: Map<String, Local> = mapOf()
 }
 
 class Snippet {
-    @SerializedName("publishedAt")
-    @Expose
     var publishedAt: String? = null
-
-    @SerializedName("channelId")
-    @Expose
     var channelId: String? = null
-
-    @SerializedName("title")
-    @Expose
     var title: String? = null
-
-    @SerializedName("description")
-    @Expose
     var description: String? = null
-
-    @SerializedName("thumbnails")
-    @Expose
-    var thumbnails: Thumbnails? = null
-
-    @SerializedName("channelTitle")
-    @Expose
+    var thumbnails: Map<String, Thumbnail> = mapOf()
     var channelTitle: String? = null
-
-    @SerializedName("playlistId")
-    @Expose
-    var playlistId: String? = null
-
-    @SerializedName("position")
-    @Expose
-    var position: String? = null
-
-    @SerializedName("resourceId")
-    @Expose
-    var resourceId: ResourceId? = null
-}
-
-class ResourceId {
-    @SerializedName("kind")
-    @Expose
-    var kind: String? = null
-
-    @SerializedName("videoId")
-    @Expose
-    var videoId: String? = null
+    var tags: List<String> = listOf()
+    var defaultLanguage: String? = null
+    var localized: Local? = null
 }
 
 class Status {
-    @SerializedName("privacyStatus")
-    @Expose
     var privacyStatus: String? = null
 }
 
-class Thumbnails {
-    @SerializedName("key")
-    @Expose
-    var key: Key? = null
+class ContentDetails {
+    var itemCount: Int? = null
 }
 
-class Key {
-    @SerializedName("url")
-    @Expose
+class Player {
+    var embedHtml: String? = null
+}
+
+class Local {
+    var title: String? = null
+    var description: String? = null
+}
+
+class Thumbnail {
     var url: String? = null
+    var widtdh: Int? = null
+    var height: Int? = null
+}
 
-    @SerializedName("width")
-    @Expose
-    var width: String? = null
+// ************************** PlaylistItem **************************
 
-    @SerializedName("height")
-    @Expose
-    var height: String? = null
+class PlaylistItem {
+    var kind: String? = null
+    var etag: String? = null
+    var id: String? = null
+    var snippet: SnippetItem? = null
+    var contentDetails: ContentDetailsItem? = null
+    var status: Status? = null
+}
+
+class SnippetItem {
+    var publishedAt: String? = null
+    var channelId: String? = null
+    var title: String? = null
+    var description: String? = null
+    var thumbnails: Map<String, Thumbnail> = mapOf()
+    var channelTitle: String? = null
+    var playlistId: String? = null
+    var position: String? = null
+    var resourceId: ResourceId? = null
+}
+
+class ContentDetailsItem {
+    var videoId: String? = null
+    var startAt: String? = null
+    var endAt: String? = null
+    var note: String? = null
+    var videoPublishedAt: DateTime? = null
+}
+
+class ResourceId {
+    var kind: String? = null
+    var videoId: String? = null
 }

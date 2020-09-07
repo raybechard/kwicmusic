@@ -10,11 +10,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="video_image">Video image</string>
-    <string name="title">Playlist items</string>
-
-    <string name="channel_id">UChapgGkGWv5Ikx0NKm9Y9CQ</string>
-    <string name="user_id">hapgGkGWv5Ikx0NKm9Y9CQ</string>
+    <string name="thumbnail">Thumbnail</string>
+    <string name="title">%s\'s playlists</string>
 
     // copied from AppAuth demo
     <string name="app_name_short">AppAuth</string>

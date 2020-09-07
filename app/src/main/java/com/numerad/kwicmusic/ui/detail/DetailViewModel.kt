@@ -1,12 +1,13 @@
-package com.numerad.kwicmusic.ui.main
+package com.numerad.kwicmusic.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.numerad.kwicmusic.Constants.Companion.API_KEY
 import com.numerad.kwicmusic.SessionManager
-import com.numerad.kwicmusic.data.model.PlaylistUiModel
-import com.numerad.kwicmusic.data.model.Snippet
+import com.numerad.kwicmusic.data.model.ContentDetailsItem
+import com.numerad.kwicmusic.data.model.ItemUiModel
+import com.numerad.kwicmusic.data.model.SnippetItem
 import com.numerad.kwicmusic.domain.YoutubeService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -15,16 +16,16 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import timber.log.Timber
 
-class MainViewModel : ViewModel(), KoinComponent {
+class DetailViewModel : ViewModel(), KoinComponent {
 
     private val disposables = CompositeDisposable()
     private val youtubeService: YoutubeService by inject()
     private val sessionManager: SessionManager by inject()
 
     //    private val videosLiveData: MutableLiveData<List<Video>> by lazy {
-    private val playlistsLiveData: MutableLiveData<List<PlaylistUiModel>> by lazy {
-        MutableLiveData<List<PlaylistUiModel>>().also {
-            listOf<PlaylistUiModel>()
+    private val playlistsitemsLiveData: MutableLiveData<List<ItemUiModel>> by lazy {
+        MutableLiveData<List<ItemUiModel>>().also {
+            listOf<ItemUiModel>()
         }
     }
 
@@ -33,9 +34,9 @@ class MainViewModel : ViewModel(), KoinComponent {
         disposables.clear()
     }
 
-    fun getPlaylists(): LiveData<List<PlaylistUiModel>> {
+    fun getPlaylists(): LiveData<List<ItemUiModel>> {
         updatePlaylists()
-        return playlistsLiveData
+        return playlistsitemsLiveData
     }
 
     private fun updatePlaylists() {
@@ -56,22 +57,23 @@ class MainViewModel : ViewModel(), KoinComponent {
 
         disposables.add(
 //            videoService.getVideosSingle(accessToken, API_KEY, "snippet,contentDetails", channelId)
-            youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
+            youtubeService.getItemsSingle(API_KEY, "snippet,contentDetails", playlistId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { result ->
-                        playlistsLiveData.value =
-                            result.items.mapNotNull { it.snippet?.toPlaylistUiModel("medium", it.contentDetails?.itemCount ?: 0) }
+                        playlistsitemsLiveData.value =
+                            result.items.mapNotNull { it.snippet?.toItemUiModel("medium", it.contentDetails) }
                     },
                     Timber::e
                 )
         )
     }
 
-    private fun Snippet.toPlaylistUiModel(thumbnailSize: String, itemCount: Int) =
-        PlaylistUiModel(
+    private fun SnippetItem.toItemUiModel(thumbnailSize: String, contentDetails: ContentDetailsItem?) =
+        ItemUiModel(
             title ?: "unknown",
             thumbnails[thumbnailSize]?.url ?: "unknown",
-            itemCount)
+            "author", // todo
+            11) // contentDetails.endAt.toInt() - contentDetails.startAt.toInt()
 }

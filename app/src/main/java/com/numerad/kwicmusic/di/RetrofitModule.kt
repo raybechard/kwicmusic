@@ -1,11 +1,11 @@
-package com.numerad.numeriq.di
+package com.numerad.kwicmusic.di
 
 import com.google.gson.Gson
 import com.numerad.kwicmusic.BuildConfig
 import com.numerad.kwicmusic.Constants.Companion.BASE_URL
 import com.numerad.kwicmusic.Constants.Companion.HTTP_TIME_OUT
-import com.numerad.numeriq.domain.AuthenticationService
-import com.numerad.numeriq.domain.VideoService
+import com.numerad.kwicmusic.domain.AuthenticationService
+import com.numerad.kwicmusic.domain.YoutubeService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level.BODY
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit
 val retrofitModule = module {
     single { okHttp() }
     single { retrofit(BASE_URL) }
-    single { get<Retrofit>().create(VideoService::class.java) }
+    single { get<Retrofit>().create(YoutubeService::class.java) }
     single { get<Retrofit>().create(AuthenticationService::class.java) }
 }
 
@@ -29,7 +29,7 @@ val retrofitTestModule = module {
     single { okHttp() }
     single { retrofitTest(get()) }
     single { MockWebServer() }
-    factory { get<Retrofit>().create(VideoService::class.java) }
+    factory { get<Retrofit>().create(YoutubeService::class.java) }
 }
 
 private fun okHttp() = OkHttpClient().newBuilder()

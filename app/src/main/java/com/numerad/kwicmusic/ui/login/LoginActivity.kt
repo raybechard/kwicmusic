@@ -31,8 +31,8 @@ import com.numerad.kwicmusic.SessionManager
 import com.numerad.kwicmusic.auth.IdentityProvider
 import com.numerad.kwicmusic.auth.TokenActivity
 import com.numerad.kwicmusic.databinding.ActivityLoginBinding
+import com.numerad.kwicmusic.domain.AuthenticationService
 import com.numerad.kwicmusic.ui.main.MainActivity
-import com.numerad.numeriq.domain.AuthenticationService
 import kotlinx.android.synthetic.main.activity_login.*
 import net.openid.appauth.*
 import net.openid.appauth.AuthorizationServiceConfiguration.RetrieveConfigurationCallback

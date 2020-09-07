@@ -1,4 +1,4 @@
-package com.numerad.kwicmusic.ui.main
+package com.numerad.kwicmusic.ui.detail
 
 import android.content.Context
 import android.os.Bundle
@@ -11,47 +11,47 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
 import com.numerad.kwicmusic.R
-import com.numerad.kwicmusic.data.model.PlaylistUiModel
+import com.numerad.kwicmusic.data.model.ItemUiModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-    private lateinit var adapter: PlaylistAdapter
-    private lateinit var mainView: View
-    private var listener: OnListInteractionListener? = null
+    private lateinit var viewModel: DetailViewModel
+    private lateinit var adapter: ItemAdapter
+    private lateinit var detailView: View
+    private var listener: OnItemInteractionListener? = null
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = DetailFragment()
     }
 
-    interface OnListInteractionListener {
-        fun onListInteraction(playlist: PlaylistUiModel?)
+    interface OnItemInteractionListener {
+        fun onItemInteraction(item: ItemUiModel?)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        mainView = inflater.inflate(R.layout.fragment_main, container, false)
-        return mainView
+        detailView = inflater.inflate(R.layout.fragment_detail, container, false)
+        return detailView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         item_list.layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
-        adapter = PlaylistAdapter(listOf(), listener)
+        adapter = ItemAdapter(listOf(), listener)
         item_list.adapter = adapter
-        detail_title.text = "Ray's YouTube Playlists" // todo fetch name, combine with resource
+        detail_title.text = "Playlist items" // todo fetch name, combine with resource
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 
-        val videoObserver = Observer<List<PlaylistUiModel>> { playlists ->
-            adapter.values = playlists
+        val videoObserver = Observer<List<ItemUiModel>> { videos ->
+            adapter.values = videos
             adapter.notifyDataSetChanged()
         }
 
@@ -62,7 +62,7 @@ class MainFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        if (context is OnListInteractionListener) {
+        if (context is OnItemInteractionListener) {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnListInteractionListener")

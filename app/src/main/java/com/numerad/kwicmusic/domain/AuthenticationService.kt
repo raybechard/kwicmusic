@@ -1,6 +1,6 @@
-package com.numerad.numeriq.domain
+package com.numerad.kwicmusic.domain
 
-import com.numerad.kwicmusic.data.model.YoutubeResponse
+import com.numerad.kwicmusic.data.model.ItemsResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,5 +17,5 @@ interface AuthenticationService {
         @Query("nonce") nonce: String
 //        @Query("login_hint") loginHint: String,
 //        @Query("hd") hd: Stringw
-    ): Single<YoutubeResponse>
+    ): Single<ItemsResponse>
 }
