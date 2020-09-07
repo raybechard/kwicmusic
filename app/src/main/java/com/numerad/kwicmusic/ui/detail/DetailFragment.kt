@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.numerad.kwicmusic.R
 import com.numerad.kwicmusic.data.model.ItemUiModel
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_detail.*
+import kotlinx.android.synthetic.main.fragment_main.detail_title
+import kotlinx.android.synthetic.main.fragment_main.item_list
 
 class DetailFragment : Fragment() {
 
@@ -50,13 +52,18 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 
-        val videoObserver = Observer<List<ItemUiModel>> { videos ->
-            adapter.values = videos
+        val titleObserver = Observer<String> { detail_number.text = it }
+        viewModel.titleLiveData.observe(viewLifecycleOwner, titleObserver)
+
+        val numberObserver = Observer<String> { detail_number.text = "$it videos" }
+        viewModel.numberLiveData.observe(viewLifecycleOwner, numberObserver)
+
+        val itemsObserver = Observer<List<ItemUiModel>> { items ->
+            adapter.values = items
             adapter.notifyDataSetChanged()
         }
 
-        viewModel.getPlaylists()
-            .observe(viewLifecycleOwner, videoObserver)
+        viewModel.getItems().observe(viewLifecycleOwner, itemsObserver)
     }
 
     override fun onAttach(context: Context) {
@@ -65,7 +72,7 @@ class DetailFragment : Fragment() {
         if (context is OnItemInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException("$context must implement OnListInteractionListener")
+            throw RuntimeException("$context must implement OnItemInteractionListener")
         }
     }
 

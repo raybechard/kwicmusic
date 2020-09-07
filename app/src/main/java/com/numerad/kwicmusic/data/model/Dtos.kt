@@ -46,8 +46,6 @@ data class Thumbnail(
     var height: Int
 )
 
-// ************************** PlaylistItem **************************
-
 data class PlaylistItem(
     var kind: String,
     var etag: String,

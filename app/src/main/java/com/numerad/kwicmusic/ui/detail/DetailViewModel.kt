@@ -20,10 +20,16 @@ class DetailViewModel : ViewModel(), KoinComponent {
     private val disposables = CompositeDisposable()
     private val youtubeService: YoutubeService by inject()
 
-    private val playlistsitemsLiveData: MutableLiveData<List<ItemUiModel>> by lazy {
-        MutableLiveData<List<ItemUiModel>>().also {
-            listOf<ItemUiModel>()
-        }
+    val titleLiveData: MutableLiveData<String> by lazy {
+        MutableLiveData("")
+    }
+
+    val numberLiveData: MutableLiveData<String> by lazy {
+        MutableLiveData("")
+    }
+
+    private val itemsLiveData: MutableLiveData<List<ItemUiModel>> by lazy {
+        MutableLiveData<List<ItemUiModel>>(listOf())
     }
 
     override fun onCleared() {
@@ -31,12 +37,12 @@ class DetailViewModel : ViewModel(), KoinComponent {
         disposables.clear()
     }
 
-    fun getPlaylists(): LiveData<List<ItemUiModel>> {
-        updatePlaylists()
-        return playlistsitemsLiveData
+    fun getItems(): LiveData<List<ItemUiModel>> {
+        updateItems()
+        return itemsLiveData
     }
 
-    private fun updatePlaylists() {
+    private fun updateItems() {
         val playlistId = "PLc18OCfkflEDYWmS7WXiipdMOj-vpP_nX" // test playlist 1
 
         disposables.add(
@@ -45,8 +51,10 @@ class DetailViewModel : ViewModel(), KoinComponent {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { result ->
-                        playlistsitemsLiveData.value =
+                        itemsLiveData.value =
                             result.items.map { it.snippet.toItemUiModel("medium", it.contentDetails) }
+
+                        numberLiveData.value = result.items.size.toString()
                     },
                     Timber::e
                 )

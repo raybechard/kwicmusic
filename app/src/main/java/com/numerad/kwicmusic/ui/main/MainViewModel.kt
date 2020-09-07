@@ -21,11 +21,8 @@ class MainViewModel : ViewModel(), KoinComponent {
     private val youtubeService: YoutubeService by inject()
     private val sessionManager: SessionManager by inject()
 
-    //    private val videosLiveData: MutableLiveData<List<Video>> by lazy {
     private val playlistsLiveData: MutableLiveData<List<PlaylistUiModel>> by lazy {
-        MutableLiveData<List<PlaylistUiModel>>().also {
-            listOf<PlaylistUiModel>()
-        }
+        MutableLiveData<List<PlaylistUiModel>>(listOf())
     }
 
     override fun onCleared() {
@@ -47,15 +44,13 @@ class MainViewModel : ViewModel(), KoinComponent {
 //        }
 
         val channelId = "UChapgGkGWv5Ikx0NKm9Y9CQ" // channel id
-
-        // playlist ids
         val playlistId = "PLc18OCfkflEDYWmS7WXiipdMOj-vpP_nX" // test playlist 1
 //        val playlistId = "PLc18OCfkflECeXw6rlkyvd5wurQuWfDcz" // test playlist 2
 //        val playlistId = "PLc18OCfkflEB1U1hrWE4ns0IYQV8KeLd0" // test playlist 3
 //        val playlistId = "PLc18OCfkflEAY4LWBVwPCaMeNXstHAkOy" // channel playlist
 
         disposables.add(
-//            videoService.getVideosSingle(accessToken, API_KEY, "snippet,contentDetails", channelId)
+//            youtubeService.getPlaylistsSingle(accessToken, API_KEY, "snippet,contentDetails", channelId)
             youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

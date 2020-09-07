@@ -50,13 +50,13 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        val videoObserver = Observer<List<PlaylistUiModel>> { playlists ->
+        val playlistObserver = Observer<List<PlaylistUiModel>> { playlists ->
             adapter.values = playlists
             adapter.notifyDataSetChanged()
         }
 
         viewModel.getPlaylists()
-            .observe(viewLifecycleOwner, videoObserver)
+            .observe(viewLifecycleOwner, playlistObserver)
     }
 
     override fun onAttach(context: Context) {
