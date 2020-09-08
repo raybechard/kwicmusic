@@ -22,46 +22,27 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.numerad.kwicmusic.HANDLE_AUTHORIZATION_RESPONSE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
 
         <activity
             android:name=".ui.detail.DetailActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name" />
 
-        <!-- Callback from authentication screen -->
         <activity android:name="net.openid.appauth.RedirectUriReceiverActivity">
-            <!--
-                filter which captures custom scheme based redirects, which are used by the intermediary page when
-                the browser used for authentication cannot directly invoke this app. The source for the redirect
-                page can be found in web/oauth2redirect.html
-            -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="net.openid.appauth.demo"/>
-                <data android:scheme="com.googleusercontent.apps.533526602309-6g5u7a7gk5gaevtei81mt8c5aokbeklv"/>
-            </intent-filter>
-
-            <!--
-                for up-to-date Chrome browsers we can intercept the OAuth2 callback directly, if a secure assertion
-                is found on the site matching this app:
-                https://appauth.demo-app.io/.well-known/assetlinks.json
-                The source for this file can also be found in
-                web/.well-known/assetlinks.json
-            -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data
-                    android:scheme="https"
-                    android:host="appauth.demo-app.io"
-                    android:path="/oauth2redirect" />
+                <data android:scheme="com.numerad.kwicmusic"/>
             </intent-filter>
         </activity>
 

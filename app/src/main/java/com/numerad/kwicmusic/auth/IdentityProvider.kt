@@ -176,10 +176,7 @@ internal class IdentityProvider(
             return mScope
         }
 
-    fun retrieveConfig(
-        context: Context,
-        callback: RetrieveConfigurationCallback
-    ) {
+    fun retrieveConfig(context: Context, callback: RetrieveConfigurationCallback) {
         readConfiguration(context)
         if (discoveryEndpoint != null) {
             AuthorizationServiceConfiguration.fetchFromUrl(mDiscoveryEndpoint!!, callback)

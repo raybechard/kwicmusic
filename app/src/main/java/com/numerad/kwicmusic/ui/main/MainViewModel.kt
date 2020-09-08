@@ -36,22 +36,18 @@ class MainViewModel : ViewModel(), KoinComponent {
     }
 
     private fun updatePlaylists() {
-//        val accessToken = sessionManager.fetchAuthToken()
+        val accessToken = sessionManager.fetchAuthToken()
 
-//        if (accessToken == null) {
-//            Timber.e("No access token")
-//            return
-//        }
+        if (accessToken == null) {
+            Timber.e("No access token")
+            return
+        }
 
-//        val channelId = "UChapgGkGWv5Ikx0NKm9Y9CQ" // channel id
         val playlistId = "PLc18OCfkflEDYWmS7WXiipdMOj-vpP_nX" // test playlist 1
-//        val playlistId = "PLc18OCfkflECeXw6rlkyvd5wurQuWfDcz" // test playlist 2
-//        val playlistId = "PLc18OCfkflEB1U1hrWE4ns0IYQV8KeLd0" // test playlist 3
-//        val playlistId = "PLc18OCfkflEAY4LWBVwPCaMeNXstHAkOy" // channel playlist
 
         disposables.add(
-//            youtubeService.getPlaylistsSingle(accessToken, API_KEY, "snippet,contentDetails", channelId)
-            youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
+//            youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
+            youtubeService.getPlaylistsSingle(accessToken, API_KEY, "snippet,contentDetails")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { it.items }

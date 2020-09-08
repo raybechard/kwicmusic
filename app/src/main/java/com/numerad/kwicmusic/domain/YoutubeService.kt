@@ -6,17 +6,18 @@ import com.numerad.kwicmusic.data.models.dtos.PlaylistListResponse
 import com.numerad.kwicmusic.data.models.dtos.VideoListResponse
 import io.reactivex.Single
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface YoutubeService {
 
     @GET("youtube/v3/playlists")
     fun getPlaylistsSingle(
-//        @Header("Authorization") authHeader: String,
+        @Header("Authorization") authHeader: String,
         @Query("key") key: String,
         @Query("part") part: String,
-        @Query("id") id: String  // playlist id
-//        @Query("mine") mine: Boolean = false
+//        @Query("id") id: String,  // playlist id
+        @Query("mine") mine: Boolean = true
     ): Single<PlaylistListResponse>
 
     @GET("youtube/v3/playlistItems")
