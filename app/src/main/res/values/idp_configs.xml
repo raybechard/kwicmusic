@@ -17,7 +17,9 @@
 
     <string name="google_name">Google</string>
     <string name="google_discovery_uri" translatable="false">https://accounts.google.com/.well-known/openid-configuration</string>
-    <string name="google_scope_string" translatable="false">openid profile email</string>
+    <string name="google_scope_string" translatable="false">
+        openid profile email https://www.googleapis.com/auth/youtube.channel-memberships.creator
+    </string>
     <bool name="google_enabled">true</bool>
 
     <string name="google_client_id"         translatable="false">565566031437-2i6i0fkq61bp9eg2fl6j2dakks742ci6.apps.googleusercontent.com</string> // web client - google signin

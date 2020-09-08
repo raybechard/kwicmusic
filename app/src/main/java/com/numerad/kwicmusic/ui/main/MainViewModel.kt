@@ -36,18 +36,17 @@ class MainViewModel : ViewModel(), KoinComponent {
     }
 
     private fun updatePlaylists() {
-        val accessToken = sessionManager.fetchAuthToken()
-
-        if (accessToken == null) {
-            Timber.e("No access token")
-            return
-        }
+//        val accessToken = sessionManager.fetchAuthToken()
+//        if (accessToken == null) {
+//            Timber.e("No access token")
+//            return
+//        }
 
         val playlistId = "PLc18OCfkflEDYWmS7WXiipdMOj-vpP_nX" // test playlist 1
 
         disposables.add(
-//            youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
-            youtubeService.getPlaylistsSingle(accessToken, API_KEY, "snippet,contentDetails")
+//            youtubeService.getPlaylistsSingle(accessToken, API_KEY, "snippet,contentDetails")
+            youtubeService.getPlaylistsSingle(API_KEY, "snippet,contentDetails", playlistId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { it.items }

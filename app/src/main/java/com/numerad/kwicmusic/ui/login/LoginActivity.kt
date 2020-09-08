@@ -93,7 +93,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.sign_in_button -> {
-//                loginViewModel.login(username.text.toString(), password.text.toString())
                 val signInIntent: Intent = googleSignInClient?.signInIntent ?: return
                 startActivityForResult(signInIntent, RC_SIGN_IN)
             }
@@ -126,11 +125,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
     }
 
     private fun gotoMainActivity(userName: String) {
-
-        val bundle = Bundle().apply {
-            putString(ARG_USER_NAME, userName)
-        }
-
+        val bundle = Bundle().apply { putString(ARG_USER_NAME, userName) }
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
