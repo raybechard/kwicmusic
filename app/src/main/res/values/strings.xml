@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">KwicMusic</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -35,4 +35,6 @@
     <string name="authorization_failed">Authorization Failed</string>
     <string name="kwic_music">Kwic Music</string>
     <string name="marketing_blurb">Sign in to view your YouTube channel\'s playlists</string>
+    <string name="num_of_items">%s items</string>
+    <string name="main_header">%s\'s YouTube Playlists</string>
 </resources>

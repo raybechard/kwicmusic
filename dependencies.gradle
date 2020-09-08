@@ -23,7 +23,7 @@ ext {
             square                : [
                     okHttp3         : '4.8.1',
                     picasso         : '2.5.2',
-                    retrofit2       : '2.5.0',
+                    retrofit2       : '2.9.0',
             ],
             rx                    : [
                     rxandroid       : '2.1.1',

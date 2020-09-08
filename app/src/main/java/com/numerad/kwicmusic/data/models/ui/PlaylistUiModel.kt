@@ -1,4 +1,4 @@
-package com.numerad.kwicmusic.data.model
+package com.numerad.kwicmusic.data.models.ui
 
 data class PlaylistUiModel(
     val id: String,

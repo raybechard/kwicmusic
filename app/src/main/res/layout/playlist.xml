@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/playlist_title"
-        style="@style/Kwic.title"
+        style="@style/Kwic.name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playlist_thumbnail"
         tools:text="Title" />
@@ -28,6 +28,7 @@
     <TextView
         android:id="@+id/playlist_number"
         style="@style/Kwic.description"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playlist_title"
         tools:text="5 items" />

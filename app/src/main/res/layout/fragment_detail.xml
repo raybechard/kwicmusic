@@ -8,41 +8,40 @@
 
     <TextView
         android:id="@+id/detail_title"
-        style="@style/Kwic.header"
+        style="@style/Kwic.title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Playlist Items" />
-
-    <TextView
-        android:id="@+id/detail_number"
-        style="@style/Kwic.header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_title"
-        tools:text="5 videos" />
+        tools:text="Playlist title" />
 
     <ImageView
-        android:id="@+id/header_thumbnail"
+        android:id="@+id/detail_thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/thumbnail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_number"
+        app:layout_constraintTop_toBottomOf="@+id/detail_title"
         tools:layout_height="50dp"
         tools:layout_width="50dp" />
 
+    <TextView
+        android:id="@+id/detail_number"
+        style="@style/Kwic.subtitle"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_thumbnail"
+        tools:text="5 items" />
+
     <View
-        style="@style/Kwic.Divider"
         android:id="@+id/divider"
+        style="@style/Kwic.Divider"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_thumbnail" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_number" />
 
-<!--    // todo remove android:name-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/item_list"
-        android:name="com.numerad.numeriq.ItemFragment"
+        android:id="@+id/detail_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -51,7 +50,6 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        tools:context=".ArticleListFragment"
         tools:itemCount="3"
         tools:listitem="@layout/playlist" />
 

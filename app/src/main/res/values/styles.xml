@@ -20,30 +20,30 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Kwic.header" parent="Kwic">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Kwic.source" parent="Kwic">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">0</item>
-        <item name="android:shadowRadius">5</item>
-        <item name="android:layout_marginStart">8dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-    </style>
-
     <style name="Kwic.title" parent="Kwic">
-        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <!--        <item name="android:textStyle">bold</item>-->
+        <item name="android:alpha">0.87</item>
+        <item name="android:maxLines">1</item>
+
+    </style>
+
+    <style name="Kwic.subtitle" parent="Kwic.title">
+        <item name="android:textSize">14sp</item>
+        <!--        <item name="android:textStyle">normal</item>-->
+        <item name="android:alpha">0.6</item>
+    </style>
+
+    <style name="Kwic.name" parent="Kwic">
+        <!--        <item name="android:textStyle">bold</item>-->
         <item name="android:textSize">12sp</item>
         <item name="android:maxLines">1</item>
+        <item name="android:alpha">0.87</item>
     </style>
 
-    <style name="Kwic.description" parent="Kwic">
-        <item name="android:textSize">12sp</item>
-        <item name="android:maxLines">2</item>
+    <style name="Kwic.description" parent="Kwic.name">
+        <!--        <item name="android:textStyle">normal</item>-->
+        <item name="android:alpha">0.6</item>
     </style>
 
     <style name="Kwic.Divider" parent="">

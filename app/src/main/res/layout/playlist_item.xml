@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/item_title"
-        style="@style/Kwic.title"
+        style="@style/Kwic.name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_thumbnail"
         tools:text="Title" />
@@ -28,6 +28,7 @@
     <TextView
         android:id="@+id/item_author"
         style="@style/Kwic.description"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_title"
         tools:text="Author" />
@@ -35,6 +36,7 @@
     <TextView
         android:id="@+id/item_duration"
         style="@style/Kwic.description"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_author"
         tools:text="Duration" />

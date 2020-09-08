@@ -1,5 +1,6 @@
 package com.numerad.kwicmusic.ui.main
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,13 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.numerad.kwicmusic.R
-import com.numerad.kwicmusic.data.model.PlaylistUiModel
+import com.numerad.kwicmusic.data.models.ui.PlaylistUiModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.playlist.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class PlaylistAdapter(
+    val context: Context,
     var values: List<PlaylistUiModel>,
     private val listener: MainFragment.OnListInteractionListener?
 ) : RecyclerView.Adapter<PlaylistAdapter.ViewHolder>(), KoinComponent {
@@ -39,7 +41,7 @@ class PlaylistAdapter(
 
         picasso.load(playlist.thumbnailUrl).into(holder.thumbnailView)
         holder.titleView.text = playlist.title
-        holder.numberView.text = playlist.number.toString() + " items"
+        holder.numberView.text = context.getString(R.string.num_of_items, playlist.number.toString())
 
         with(holder.view) {
             tag = playlist

@@ -1,6 +1,6 @@
 package com.numerad.kwicmusic.data
 
-import com.numerad.kwicmusic.data.model.LoggedInUser
+import com.numerad.kwicmusic.data.models.ui.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

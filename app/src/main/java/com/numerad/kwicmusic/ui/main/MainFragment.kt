@@ -11,19 +11,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.numerad.kwicmusic.R
-import com.numerad.kwicmusic.data.model.PlaylistUiModel
+import com.numerad.kwicmusic.data.models.ui.PlaylistUiModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
-class MainFragment : Fragment() {
+class MainFragment(val userName: String) : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: PlaylistAdapter
     private lateinit var mainView: View
     private var listener: OnListInteractionListener? = null
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     interface OnListInteractionListener {
         fun onListInteraction(playlist: PlaylistUiModel)
@@ -40,10 +36,10 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        item_list.layoutManager = LinearLayoutManager(context, VERTICAL, false)
-        adapter = PlaylistAdapter(listOf(), listener)
-        item_list.adapter = adapter
-        detail_title.text = "Ray's YouTube Playlists" // todo fetch name, combine with resource
+        adapter = PlaylistAdapter(requireContext(), listOf(), listener)
+        main_list.layoutManager = LinearLayoutManager(context, VERTICAL, false)
+        main_list.adapter = adapter
+        main_title.text = context?.getString(R.string.main_header, userName)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -62,15 +58,19 @@ class MainFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        if (context is OnListInteractionListener) {
+        if (context is OnListInteractionListener)
             listener = context
-        } else {
+        else
             throw RuntimeException("$context must implement OnListInteractionListener")
-        }
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    companion object {
+        const val ARG_USER_NAME = "ARG_USER_NAME"
+        fun newInstance(userName: String) = MainFragment(userName)
     }
 }

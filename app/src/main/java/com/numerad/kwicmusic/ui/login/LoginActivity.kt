@@ -87,7 +87,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
         Toast.makeText(applicationContext, "$welcome $displayName", Toast.LENGTH_LONG).show()
-        gotoMainActivity()
+        gotoMainActivity(model.displayName)
     }
 
     override fun onClick(v: View) {
@@ -125,8 +125,14 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
         }
     }
 
-    private fun gotoMainActivity() {
+    private fun gotoMainActivity(userName: String) {
+
+        val bundle = Bundle().apply {
+            putString(ARG_USER_NAME, userName)
+        }
+
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtras(bundle)
         startActivity(intent)
         finish()
     }
@@ -141,7 +147,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
                     val user = auth.currentUser
                     getConfig()
 //                    sessionManager.saveAuthToken(token)
-                    gotoMainActivity()
+                    gotoMainActivity(user?.displayName ?: "")
                 } else {
                     Timber.tag(TAG).e(task.exception, "FirebaseAuth.signInWithCredential failure")
                     Snackbar.make(container, "Authentication Failed", Snackbar.LENGTH_SHORT).show()
@@ -213,5 +219,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener, KoinComponent {
     companion object {
         private const val TAG = "LoginActivity"
         private const val RC_SIGN_IN = 9001
+        const val ARG_USER_NAME = "ARG_USER_NAME"
     }
 }

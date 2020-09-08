@@ -7,14 +7,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.numerad.kwicmusic.R
-import com.numerad.kwicmusic.data.model.ItemUiModel
+import com.numerad.kwicmusic.data.models.ui.PlaylistItemUiModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.playlist_item.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class ItemAdapter(
-    var values: List<ItemUiModel>,
+    var values: List<PlaylistItemUiModel>,
+    var durations: List<String>,
+    var authors: List<String>,
     private val listener: DetailFragment.OnItemInteractionListener?
 ) : RecyclerView.Adapter<ItemAdapter.ViewHolder>(), KoinComponent {
 
@@ -23,7 +25,7 @@ class ItemAdapter(
 
     init {
         onClickListener = View.OnClickListener { v ->
-            val item = v.tag as ItemUiModel
+            val item = v.tag as PlaylistItemUiModel
             listener?.onItemInteraction(item)
         }
     }
@@ -37,10 +39,18 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
 
+        val duration = if (durations.size > position)
+            durations[position]
+        else ""
+
+        val author = if (authors.size > position)
+            authors[position]
+        else ""
+
         picasso.load(item.thumbnailUrl).into(holder.thumbnailView)
         holder.titleView.text = item.title
-        holder.authorView.text = item.author
-        holder.durationView.text = item.duration.toString()
+        holder.authorView.text = author
+        holder.durationView.text = duration
 
         with(holder.view) {
             tag = item
