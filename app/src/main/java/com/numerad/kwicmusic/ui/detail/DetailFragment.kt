@@ -26,11 +26,6 @@ class DetailFragment(val title: String, val id: String, private val thumbnailUrl
     private var listener: OnItemInteractionListener? = null
     private val picasso: Picasso by inject()
 
-    companion object {
-        fun newInstance(title: String, id: String, thumbnailUrl: String) =
-            DetailFragment(title, id, thumbnailUrl)
-    }
-
     interface OnItemInteractionListener {
         fun onItemInteraction(playlistItem: PlaylistItemUiModel?)
     }
@@ -100,5 +95,10 @@ class DetailFragment(val title: String, val id: String, private val thumbnailUrl
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    companion object {
+        fun newInstance(title: String, id: String, thumbnailUrl: String) =
+            DetailFragment(title, id, thumbnailUrl)
     }
 }

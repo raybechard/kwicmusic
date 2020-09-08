@@ -33,8 +33,8 @@
     <string name="auth_header">Sign in with:</string>
     <string name="no_idps_configured">No IDPs are configured. Please edit idp_configs.xml</string>
     <string name="authorization_failed">Authorization Failed</string>
-    <string name="kwic_music">Kwic Music</string>
-    <string name="marketing_blurb">Sign in to view your YouTube channel\'s playlists</string>
+    <string name="kwic_music">KwicMusic</string>
+    <string name="marketing_blurb">Sign in to view your YouTube playlists</string>
     <string name="num_of_items">%s items</string>
     <string name="main_header">%s\'s YouTube Playlists</string>
 </resources>

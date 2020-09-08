@@ -70,7 +70,6 @@ class MainFragment(val userName: String) : Fragment() {
     }
 
     companion object {
-        const val ARG_USER_NAME = "ARG_USER_NAME"
         fun newInstance(userName: String) = MainFragment(userName)
     }
 }
